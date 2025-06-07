@@ -1,13 +1,15 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Aroa Services</title>
+  <!-- خطوط Google -->
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
   <style>
     body {
       margin: 0;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      font-family: 'Cairo', 'Poppins', sans-serif;
       background: linear-gradient(to bottom right, #fbeaff, #f9f3ff);
       color: #333;
       padding: 20px;
@@ -24,22 +26,25 @@
       color: #a45ee5;
       margin-bottom: 10px;
       text-align: center;
+      font-weight: 600;
     }
 
     p.intro {
-      font-size: 1.3em;
+      font-size: 1.2em;
       color: #555;
       text-align: center;
       margin-bottom: 50px;
       animation: fadeIn 2s ease 0.5s forwards;
       opacity: 0;
+      font-weight: 400;
     }
 
     .cards {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
       gap: 20px;
+      max-width: 1000px;
+      margin: 0 auto;
       animation: fadeIn 2s ease 1s forwards;
       opacity: 0;
     }
@@ -48,10 +53,8 @@
       background: #fff;
       border: 1px solid #ccc;
       border-radius: 10px;
-      padding: 20px;
-      flex: 1 1 300px;
-      max-width: 45%;
-      box-shadow: 0 5px 10px rgba(0,0,0,0.05);
+      padding: 15px 20px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.05);
       transition: transform 0.3s ease;
     }
 
@@ -61,11 +64,14 @@
 
     .card h3 {
       color: #8e44ad;
+      font-size: 1.2em;
+      margin-bottom: 10px;
+      font-weight: 600;
     }
 
-    .divider {
-      width: 100%;
-      height: 20px;
+    .card p {
+      font-size: 0.95em;
+      line-height: 1.6;
     }
 
     .btn {
@@ -87,6 +93,12 @@
     .btn:hover {
       background: #333;
     }
+
+    @media (max-width: 700px) {
+      .cards {
+        grid-template-columns: 1fr;
+      }
+    }
   </style>
 </head>
 <body>
@@ -95,42 +107,28 @@
   <p class="intro">نحنُ نوفر خدمات الديسكورد والكثير..</p>
 
   <div class="cards">
-    <!-- الكرت الأول -->
     <div class="card">
       <h3>بيع نايتروهات ديسكورد</h3>
       <p>نوفّر لك اشتراكات Discord Nitro بأسعار مناسبة. النيترو يعطيك رموز متحركة، جودة صوت وصورة أعلى، وميزات إضافية لحسابك.</p>
     </div>
-
-    <!-- الكرت الثاني -->
     <div class="card">
       <h3>بيع سيرفرات ديسكورد</h3>
       <p>نوفر لك سيرفرات مجهزة بالكامل بحسب طلبك، سواء كان للدردشة أو الألعاب أو المجتمعات الكبيرة.</p>
     </div>
-
-    <div class="divider"></div>
-
-    <!-- الكرت الثالث -->
     <div class="card">
       <h3>بيع أدوات ديسكورد</h3>
       <p>نبيع أدوات احترافية مثل إدارة الأعضاء، حماية السيرفر، وأدوات الرد التلقائي والتنظيم.</p>
     </div>
-
-    <!-- الكرت الرابع -->
     <div class="card">
       <h3>بيع مواقع</h3>
       <p>نقوم ببرمجة وتصميم مواقع بسيطة أو احترافية بأسعار مناسبة حسب احتياجك.</p>
     </div>
-
-    <div class="divider"></div>
-
-    <!-- الكرت الخامس -->
     <div class="card">
       <h3>بيع بوتات بلغات متعددة</h3>
       <p>نبرمج بوتات ديسكورد بلغات مثل JavaScript, Python و Node.js لتناسب احتياجاتك الخاصة.</p>
     </div>
   </div>
 
-  <!-- زر الدخول -->
   <a href="https://discord.gg/MDbCnKGf87" target="_blank" class="btn">دخول سيرفنا لطلب خدمة</a>
 
 </body>
