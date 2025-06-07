@@ -1,1 +1,137 @@
-gggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggg
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Aroa Services</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(to bottom right, #fbeaff, #f9f3ff);
+      color: #333;
+      padding: 20px;
+      animation: fadeIn 2s ease;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    h1 {
+      font-size: 3em;
+      color: #a45ee5;
+      margin-bottom: 10px;
+      text-align: center;
+    }
+
+    p.intro {
+      font-size: 1.3em;
+      color: #555;
+      text-align: center;
+      margin-bottom: 50px;
+      animation: fadeIn 2s ease 0.5s forwards;
+      opacity: 0;
+    }
+
+    .cards {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+      animation: fadeIn 2s ease 1s forwards;
+      opacity: 0;
+    }
+
+    .card {
+      background: #fff;
+      border: 1px solid #ccc;
+      border-radius: 10px;
+      padding: 20px;
+      flex: 1 1 300px;
+      max-width: 45%;
+      box-shadow: 0 5px 10px rgba(0,0,0,0.05);
+      transition: transform 0.3s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+    }
+
+    .card h3 {
+      color: #8e44ad;
+    }
+
+    .divider {
+      width: 100%;
+      height: 20px;
+    }
+
+    .btn {
+      display: block;
+      margin: 50px auto 0;
+      background: #000;
+      color: #fff;
+      padding: 15px 30px;
+      font-size: 1.1em;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      text-decoration: none;
+      text-align: center;
+      animation: fadeIn 2s ease 1.5s forwards;
+      opacity: 0;
+    }
+
+    .btn:hover {
+      background: #333;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Aroa</h1>
+  <p class="intro">نحنُ نوفر خدمات الديسكورد والكثير..</p>
+
+  <div class="cards">
+    <!-- الكرت الأول -->
+    <div class="card">
+      <h3>بيع نايتروهات ديسكورد</h3>
+      <p>نوفّر لك اشتراكات Discord Nitro بأسعار مناسبة. النيترو يعطيك رموز متحركة، جودة صوت وصورة أعلى، وميزات إضافية لحسابك.</p>
+    </div>
+
+    <!-- الكرت الثاني -->
+    <div class="card">
+      <h3>بيع سيرفرات ديسكورد</h3>
+      <p>نوفر لك سيرفرات مجهزة بالكامل بحسب طلبك، سواء كان للدردشة أو الألعاب أو المجتمعات الكبيرة.</p>
+    </div>
+
+    <div class="divider"></div>
+
+    <!-- الكرت الثالث -->
+    <div class="card">
+      <h3>بيع أدوات ديسكورد</h3>
+      <p>نبيع أدوات احترافية مثل إدارة الأعضاء، حماية السيرفر، وأدوات الرد التلقائي والتنظيم.</p>
+    </div>
+
+    <!-- الكرت الرابع -->
+    <div class="card">
+      <h3>بيع مواقع</h3>
+      <p>نقوم ببرمجة وتصميم مواقع بسيطة أو احترافية بأسعار مناسبة حسب احتياجك.</p>
+    </div>
+
+    <div class="divider"></div>
+
+    <!-- الكرت الخامس -->
+    <div class="card">
+      <h3>بيع بوتات بلغات متعددة</h3>
+      <p>نبرمج بوتات ديسكورد بلغات مثل JavaScript, Python و Node.js لتناسب احتياجاتك الخاصة.</p>
+    </div>
+  </div>
+
+  <!-- زر الدخول -->
+  <a href="https://discord.gg/MDbCnKGf87" target="_blank" class="btn">دخول سيرفنا لطلب خدمة</a>
+
+</body>
+</html>
