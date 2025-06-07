@@ -4,46 +4,47 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Aroa Services</title>
-  <!-- خطوط Google -->
-  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  
+  <!-- خط مشابه تماماً لما في الصورة (Tajawal Bold) -->
+  <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700;900&display=swap" rel="stylesheet">
+  
   <style>
     body {
       margin: 0;
-      font-family: 'Cairo', 'Poppins', sans-serif;
+      font-family: 'Tajawal', sans-serif;
       background: linear-gradient(to bottom right, #fbeaff, #f9f3ff);
-      color: #333;
+      color: #222;
       padding: 20px;
       animation: fadeIn 2s ease;
     }
 
     @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(30px); }
+      from { opacity: 0; transform: translateY(20px); }
       to { opacity: 1; transform: translateY(0); }
     }
 
     h1 {
       font-size: 3em;
       color: #a45ee5;
-      margin-bottom: 10px;
       text-align: center;
-      font-weight: 600;
+      font-weight: 900;
     }
 
     p.intro {
       font-size: 1.2em;
-      color: #555;
       text-align: center;
-      margin-bottom: 50px;
+      margin-bottom: 40px;
+      font-weight: 500;
+      color: #444;
       animation: fadeIn 2s ease 0.5s forwards;
       opacity: 0;
-      font-weight: 400;
     }
 
     .cards {
       display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 20px;
-      max-width: 1000px;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 15px;
+      max-width: 900px;
       margin: 0 auto;
       animation: fadeIn 2s ease 1s forwards;
       opacity: 0;
@@ -54,23 +55,25 @@
       border: 1px solid #ccc;
       border-radius: 10px;
       padding: 15px 20px;
+      font-size: 0.9em;
       box-shadow: 0 4px 8px rgba(0,0,0,0.05);
       transition: transform 0.3s ease;
     }
 
     .card:hover {
-      transform: translateY(-5px);
+      transform: translateY(-4px);
     }
 
     .card h3 {
       color: #8e44ad;
-      font-size: 1.2em;
-      margin-bottom: 10px;
-      font-weight: 600;
+      font-weight: 800;
+      font-size: 1.1em;
+      margin-bottom: 8px;
     }
 
     .card p {
-      font-size: 0.95em;
+      font-weight: 400;
+      color: #333;
       line-height: 1.6;
     }
 
@@ -79,13 +82,14 @@
       margin: 50px auto 0;
       background: #000;
       color: #fff;
-      padding: 15px 30px;
-      font-size: 1.1em;
+      padding: 12px 28px;
+      font-size: 1em;
       border: none;
       border-radius: 8px;
       cursor: pointer;
       text-decoration: none;
       text-align: center;
+      font-weight: bold;
       animation: fadeIn 2s ease 1.5s forwards;
       opacity: 0;
     }
@@ -94,7 +98,7 @@
       background: #333;
     }
 
-    @media (max-width: 700px) {
+    @media (max-width: 600px) {
       .cards {
         grid-template-columns: 1fr;
       }
@@ -109,23 +113,23 @@
   <div class="cards">
     <div class="card">
       <h3>بيع نايتروهات ديسكورد</h3>
-      <p>نوفّر لك اشتراكات Discord Nitro بأسعار مناسبة. النيترو يعطيك رموز متحركة، جودة صوت وصورة أعلى، وميزات إضافية لحسابك.</p>
+      <p>نوفّر اشتراكات Discord Nitro برسوم مناسبة. يمنحك رموز متحركة، جودة بث عالية، ومزايا خاصة على السيرفرات.</p>
     </div>
     <div class="card">
       <h3>بيع سيرفرات ديسكورد</h3>
-      <p>نوفر لك سيرفرات مجهزة بالكامل بحسب طلبك، سواء كان للدردشة أو الألعاب أو المجتمعات الكبيرة.</p>
+      <p>سيرفرات كاملة جاهزة حسب احتياجك، تصميم احترافي، صلاحيات، وأدوات تنظيم.</p>
     </div>
     <div class="card">
       <h3>بيع أدوات ديسكورد</h3>
-      <p>نبيع أدوات احترافية مثل إدارة الأعضاء، حماية السيرفر، وأدوات الرد التلقائي والتنظيم.</p>
+      <p>أدوات إدارية مثل حماية السيرفر، الردود التلقائية، أنظمة تذاكر وغيرها.</p>
     </div>
     <div class="card">
       <h3>بيع مواقع</h3>
-      <p>نقوم ببرمجة وتصميم مواقع بسيطة أو احترافية بأسعار مناسبة حسب احتياجك.</p>
+      <p>نصمم ونبرمج مواقع بسيطة أو متقدمة حسب ميزانيتك واحتياجك الشخصي أو التجاري.</p>
     </div>
     <div class="card">
-      <h3>بيع بوتات بلغات متعددة</h3>
-      <p>نبرمج بوتات ديسكورد بلغات مثل JavaScript, Python و Node.js لتناسب احتياجاتك الخاصة.</p>
+      <h3>بيع بوتات بلغات مختلفة</h3>
+      <p>بوتات برمجية باحتراف بلغات JavaScript, Python, وغيرها تناسب متطلباتك.</p>
     </div>
   </div>
 
