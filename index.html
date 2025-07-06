@@ -1,139 +1,282 @@
 <!DOCTYPE html>
-<html lang="ar" dir="rtl">
+
+<html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Aroa Services</title>
-  
-  <!-- خط مشابه تماماً لما في الصورة (Tajawal Bold) -->
-  <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700;900&display=swap" rel="stylesheet">
-  
-  <style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Watch - Discord Protection Bot</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+```
     body {
-      margin: 0;
-      font-family: 'Tajawal', sans-serif;
-      background: linear-gradient(to bottom right, #fbeaff, #f9f3ff);
-      color: #222;
-      padding: 20px;
-      animation: fadeIn 2s ease;
+        font-family: 'Arial', sans-serif;
+        background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f1419 100%);
+        color: white;
+        overflow-x: hidden;
     }
 
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(20px); }
-      to { opacity: 1; transform: translateY(0); }
+    /* Animated Stars Background */
+    .stars {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        pointer-events: none;
+        z-index: 1;
     }
 
-    h1 {
-      font-size: 3em;
-      color: #a45ee5;
-      text-align: center;
-      font-weight: 900;
+    .star {
+        position: absolute;
+        width: 2px;
+        height: 2px;
+        background: white;
+        border-radius: 50%;
+        animation: twinkle 3s infinite;
     }
 
-    p.intro {
-      font-size: 1.2em;
-      text-align: center;
-      margin-bottom: 40px;
-      font-weight: 500;
-      color: #444;
-      animation: fadeIn 2s ease 0.5s forwards;
-      opacity: 0;
+    @keyframes twinkle {
+        0%, 100% { opacity: 0.3; transform: scale(1); }
+        50% { opacity: 1; transform: scale(1.2); }
     }
 
-    .cards {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 15px;
-      max-width: 900px;
-      margin: 0 auto;
-      animation: fadeIn 2s ease 1s forwards;
-      opacity: 0;
+    /* Container */
+    .container {
+        position: relative;
+        z-index: 2;
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 20px;
+    }
+
+    /* Header */
+    .header {
+        text-align: center;
+        padding: 100px 0 50px;
+        opacity: 0;
+        transform: translateY(50px);
+        animation: fadeInUp 1s ease-out forwards;
+    }
+
+    .title {
+        font-size: 4rem;
+        font-weight: bold;
+        margin-bottom: 30px;
+        background: linear-gradient(45deg, #ffffff, #a8a8a8);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        text-shadow: 0 0 30px rgba(255, 255, 255, 0.3);
+    }
+
+    /* Invite Button */
+    .invite-btn {
+        display: inline-block;
+        background: linear-gradient(45deg, #7c3aed, #a855f7);
+        color: white;
+        padding: 15px 40px;
+        border-radius: 50px;
+        text-decoration: none;
+        font-size: 1.2rem;
+        font-weight: bold;
+        transition: all 0.3s ease;
+        border: 2px solid transparent;
+        box-shadow: 0 10px 30px rgba(124, 58, 237, 0.3);
+        opacity: 0;
+        transform: translateY(30px);
+        animation: fadeInUp 1s ease-out 0.5s forwards;
+    }
+
+    .invite-btn:hover {
+        transform: translateY(-5px) scale(1.05);
+        box-shadow: 0 15px 40px rgba(124, 58, 237, 0.5);
+        border-color: rgba(124, 58, 237, 0.5);
+    }
+
+    /* Cards Section */
+    .cards-section {
+        padding: 100px 0;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 30px;
+        opacity: 0;
+        animation: fadeIn 1s ease-out 1s forwards;
     }
 
     .card {
-      background: #fff;
-      border: 1px solid #ccc;
-      border-radius: 10px;
-      padding: 15px 20px;
-      font-size: 0.9em;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.05);
-      transition: transform 0.3s ease;
+        background: rgba(255, 255, 255, 0.05);
+        border-radius: 20px;
+        padding: 30px;
+        text-align: center;
+        border: 2px solid rgba(255, 255, 255, 0.1);
+        transition: all 0.3s ease;
+        backdrop-filter: blur(10px);
+        opacity: 0;
+        transform: translateY(50px);
+        animation: fadeInUp 0.8s ease-out forwards;
     }
 
+    .card:nth-child(1) { animation-delay: 1.2s; }
+    .card:nth-child(2) { animation-delay: 1.4s; }
+    .card:nth-child(3) { animation-delay: 1.6s; }
+    .card:nth-child(4) { animation-delay: 1.8s; }
+    .card:nth-child(5) { animation-delay: 2s; }
+
     .card:hover {
-      transform: translateY(-4px);
+        transform: translateY(-10px) scale(1.05);
+        border-color: rgba(59, 130, 246, 0.5);
+        box-shadow: 0 20px 50px rgba(59, 130, 246, 0.2);
+    }
+
+    .card-icon {
+        width: 60px;
+        height: 60px;
+        margin: 0 auto 20px;
+        fill: #7c3aed;
     }
 
     .card h3 {
-      color: #8e44ad;
-      font-weight: 800;
-      font-size: 1.1em;
-      margin-bottom: 8px;
+        font-size: 1.5rem;
+        margin-bottom: 15px;
+        color: #ffffff;
     }
 
     .card p {
-      font-weight: 400;
-      color: #333;
-      line-height: 1.6;
+        font-size: 1rem;
+        line-height: 1.6;
+        color: #cccccc;
     }
 
-    .btn {
-      display: block;
-      margin: 50px auto 0;
-      background: #000;
-      color: #fff;
-      padding: 12px 28px;
-      font-size: 1em;
-      border: none;
-      border-radius: 8px;
-      cursor: pointer;
-      text-decoration: none;
-      text-align: center;
-      font-weight: bold;
-      animation: fadeIn 2s ease 1.5s forwards;
-      opacity: 0;
+    /* Animations */
+    @keyframes fadeInUp {
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
     }
 
-    .btn:hover {
-      background: #333;
+    @keyframes fadeIn {
+        to {
+            opacity: 1;
+        }
     }
 
-    @media (max-width: 600px) {
-      .cards {
-        grid-template-columns: 1fr;
-      }
+    /* Responsive */
+    @media (max-width: 768px) {
+        .title {
+            font-size: 2.5rem;
+        }
+        
+        .cards-section {
+            grid-template-columns: 1fr;
+            padding: 50px 0;
+        }
     }
-  </style>
+</style>
+```
+
 </head>
 <body>
+    <!-- Animated Stars -->
+    <div class="stars" id="stars"></div>
 
-  <h1>Aroa</h1>
-  <p class="intro">نحنُ نوفر خدمات الديسكورد والكثير..</p>
+```
+<div class="container">
+    <!-- Header -->
+    <div class="header">
+        <h1 class="title">Watch</h1>
+        <a href="https://discord.com/oauth2/authorize?client_id=1391395335636648056&permissions=8&integration_type=0&scope=bot+applications.commands" class="invite-btn" target="_blank">
+            Invite Bot Discord
+        </a>
+    </div>
 
-  <div class="cards">
-    <div class="card">
-      <h3>بيع نايتروهات ديسكورد</h3>
-      <p>نوفّر اشتراكات Discord Nitro برسوم مناسبة. يمنحك رموز متحركة، جودة بث عالية، ومزايا خاصة على السيرفرات.</p>
-    </div>
-    <div class="card">
-      <h3>بيع سيرفرات ديسكورد</h3>
-      <p>سيرفرات كاملة جاهزة حسب احتياجك، تصميم احترافي، صلاحيات، وأدوات تنظيم.</p>
-    </div>
-    <div class="card">
-      <h3>بيع أدوات ديسكورد</h3>
-      <p>أدوات إدارية مثل حماية السيرفر، الردود التلقائية، أنظمة تذاكر وغيرها.</p>
-    </div>
-    <div class="card">
-      <h3>بيع مواقع</h3>
-      <p>نصمم ونبرمج مواقع بسيطة أو متقدمة حسب ميزانيتك واحتياجك الشخصي أو التجاري.</p>
-    </div>
-    <div class="card">
-      <h3>بيع بوتات بلغات مختلفة</h3>
-      <p>بوتات برمجية باحتراف بلغات JavaScript, Python, وغيرها تناسب متطلباتك.</p>
-    </div>
-  </div>
+    <!-- Cards Section -->
+    <div class="cards-section">
+        <div class="card">
+            <svg class="card-icon" viewBox="0 0 24 24">
+                <path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4z"/>
+                <path d="M9 12l2 2 4-4"/>
+            </svg>
+            <h3>Ultimate Server Protection</h3>
+            <p>Experience the world's most advanced Discord server protection system. Our AI-powered security algorithms detect and neutralize threats in real-time, ensuring your community stays safe from raids, spam, and malicious activities. With 24/7 monitoring and instant response capabilities, Watch protects your server better than any other bot on the market.</p>
+        </div>
 
-  <a href="https://discord.gg/MDbCnKGf87" target="_blank" class="btn">دخول سيرفنا لطلب خدمة</a>
+        <div class="card">
+            <svg class="card-icon" viewBox="0 0 24 24">
+                <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+            </svg>
+            <h3>Discord Verified & Trusted</h3>
+            <p>Watch is officially verified by Discord and trusted by over 100,000 servers worldwide. Our bot meets Discord's highest security standards and undergoes regular audits to ensure reliability and performance. Join the community of server owners who trust Watch to keep their Discord communities safe and secure.</p>
+        </div>
+
+        <div class="card">
+            <svg class="card-icon" viewBox="0 0 24 24">
+                <path d="M13 10V3L4 14h7v7l9-11h-7z"/>
+            </svg>
+            <h3>Lightning Fast Response</h3>
+            <p>Our advanced infrastructure ensures Watch responds to threats within milliseconds. With global server deployment and optimized code, Watch delivers unmatched performance and reliability. Experience instant moderation actions, real-time threat detection, and seamless integration with your server's existing systems.</p>
+        </div>
+
+        <div class="card">
+            <svg class="card-icon" viewBox="0 0 24 24">
+                <path d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"/>
+                <path d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/>
+            </svg>
+            <h3>Advanced Configuration</h3>
+            <p>Customize Watch to perfectly fit your server's needs with our comprehensive configuration system. Set up custom automod rules, configure member verification processes, and create personalized security policies. Our intuitive dashboard makes it easy to manage all aspects of your server protection while maintaining complete control over your community.</p>
+        </div>
+
+        <div class="card">
+            <svg class="card-icon" viewBox="0 0 24 24">
+                <path d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
+                <path d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
+            </svg>
+            <h3>Global Coverage & Support</h3>
+            <p>Watch operates across multiple continents with 24/7 customer support in multiple languages. Our dedicated team of security experts and developers continuously monitor and improve the bot's performance. Whether you're running a small community or a massive server, Watch scales with your needs and provides consistent protection worldwide.</p>
+        </div>
+    </div>
+</div>
+
+<script>
+    // Generate animated stars
+    function createStars() {
+        const starsContainer = document.getElementById('stars');
+        const numberOfStars = 100;
+
+        for (let i = 0; i < numberOfStars; i++) {
+            const star = document.createElement('div');
+            star.className = 'star';
+            star.style.left = Math.random() * 100 + '%';
+            star.style.top = Math.random() * 100 + '%';
+            star.style.animationDelay = Math.random() * 3 + 's';
+            star.style.animationDuration = (Math.random() * 3 + 2) + 's';
+            starsContainer.appendChild(star);
+        }
+    }
+
+    // Initialize stars when page loads
+    window.addEventListener('load', createStars);
+
+    // Add click effects to interactive elements
+    document.addEventListener('DOMContentLoaded', function() {
+        const interactiveElements = document.querySelectorAll('.card, .invite-btn');
+        
+        interactiveElements.forEach(element => {
+            element.addEventListener('click', function() {
+                this.style.transform = 'scale(0.95)';
+                setTimeout(() => {
+                    this.style.transform = '';
+                }, 150);
+            });
+        });
+    });
+</script>
+```
 
 </body>
 </html>
